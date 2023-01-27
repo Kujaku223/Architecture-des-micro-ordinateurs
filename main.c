@@ -5,15 +5,19 @@
 
 int compare(char valeur, char comparteur)
 {
-//  printf("%d", valeur);
-//    printf("%d", comparteur);
+   //  printf("%d", valeur);
+   //    printf("%d", comparteur);
    int a = valeur & comparteur;
    // printf("%d",a);
    // printf("\n");
-   if (valeur & comparteur == 1){
+   if (valeur & comparteur == 1)
+   {
+      printf("yes");
       return 1;
    }
-   else {
+   else
+   {
+      printf("no");
       return 0;
    }
 }
@@ -28,25 +32,22 @@ bool parite(char valeur)
 
    for (int i = 0; i < 8; i++)
    {
-      n = compare(valeur, comparateur);
-      comparateur = comparateur << 1;
+      n += compare(valeur, comparateur);
+      printf("n:");
+      printf("%d",n);
+      valeur = valeur >> 1;
 
-      // printf("%d",n);
-      printf("owo");
-      printf("%d", comparateur);
-      printf("\n");
    }
    if (n % 2 == 0)
    {
       parite = true;
    }
-   // Ne rien modifier après cette ligne
+
    return parite;
 }
 int main(int argc, char **argv)
 {
-   // Complétez la fonction à partir d'ici
-   char hehe = 0b00100011;
+   char hehe = 0b00111110;
    if (parite(hehe))
    {
       printf("YAAAAAAAAAAAAAAAAAH");
