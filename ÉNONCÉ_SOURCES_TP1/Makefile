@@ -3,6 +3,7 @@ CFLAGS=-g -m32 -g -Wall
 RM=rm -f
 TARGET=exec
 OBJECTS=main.o
+LDLIBS = -lm
 
 .PHONY: clean
 
@@ -12,7 +13,7 @@ OBJECTS=main.o
 all: exec
 
 $(TARGET): $(OBJECTS)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) $(LDLIBS) -o $@ $^
 
 clean:
 	$(RM) *.o $(TARGET)
